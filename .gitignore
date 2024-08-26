@@ -1,0 +1,14 @@
+**/outputs/
+**/*.egg-info/
+**/*.Trash*/
+*.pyc
+**/*.pyc
+*.mp4
+*.png
+*.pdf
+*.log
+*.gif
+*.npy
+**/*.db
+env_dataset
+!**/pattern_default_crop.png

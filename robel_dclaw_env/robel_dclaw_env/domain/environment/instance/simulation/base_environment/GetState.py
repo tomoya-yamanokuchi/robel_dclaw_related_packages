@@ -31,7 +31,8 @@ class GetState:
         end_effector_position = self.forward_kinematics.calc(robot_position).squeeze()
         task_space_position   = self.task_space.end2task(EndEffectorPosition(NTD(end_effector_position)))
         # ------------------
-        body_id      = self.base_env.model.body_name2id('pushing_object') # ボディのIDを取得
+        # body_id      = self.base_env.model.body_name2id('pushing_object') # ボディのIDを取得
+        body_id      = self.base_env.model.body_name2id('object') # ボディのIDを取得
         quaternion   = self.base_env.data.body_xquat[body_id]             # ボディのクォータニオンを取得
         euler_angles = quaternion2euler(quaternion) # クォータニオンをオイラー角に変換
         # print("euler_angles = {}".format(euler_angles))

@@ -31,9 +31,13 @@ class ValveSimulationEnvironment(AbstractEnvironment):
         self.task_space_transformer = TaskSpaceFactory.create_transformer(self.env_name, mode="numpy")
         self.TaskSpaceValueObject   = TaskSpaceFactory.create_position(self.env_name)
 
+    def set_xml_path(self, xml_path: str):
+        self.xml_path = xml_path
+
     def load_model(self):
-        model                  = self.model_loader.load()
-        sim                    = mujoco_py.MjSim(model)
+        print("self.xml_path = {}".format(self.xml_path))
+        self.model             = self.base_env.load_model_from_path(self.xml_path)
+        sim                    = mujoco_py.MjSim(self.model)
         self.base_env.set_sim(sim)
         self.base_env.build_viewer()
         self.base_env.view()
