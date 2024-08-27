@@ -29,6 +29,6 @@ class SetCtrl:
             joint_space_position     = JointPosition(ctrl_joint.squeeze()),
         )
 
-    def set_joint_space_ctrl(self, joint_space_position: object):
+    def set_joint_space_ctrl(self, joint_space_position: np.ndarray):
         self.base_env.set_ctrl(joint_space_position.squeeze())
         return self.base_env.ctrl

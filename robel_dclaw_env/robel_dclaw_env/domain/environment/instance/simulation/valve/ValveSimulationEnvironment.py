@@ -1,3 +1,4 @@
+import numpy as np
 import mujoco_py
 # ----- general module -----
 from ....kinematics import NumpyForwardKinematics
@@ -78,7 +79,7 @@ class ValveSimulationEnvironment(AbstractEnvironment):
     def set_task_space_ctrl(self, TaskSpacePosition: TaskSpacePositionValue_1D_Manifold) -> CtrlDict:
         return self.setCtrl.set_ctrl(TaskSpacePosition)
 
-    def set_joint_space_ctrl(self, joint_space_position):
+    def set_joint_space_ctrl(self, joint_space_position: np.ndarray):
         return self.setCtrl.set_joint_space_ctrl(joint_space_position)
 
     def set_target_position(self, target_position):

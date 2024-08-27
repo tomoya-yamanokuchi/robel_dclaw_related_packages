@@ -12,8 +12,8 @@ use_render: True
 # use_render: False
 
 viewer:
-    is_Offscreen     : True
-    # is_Offscreen     : False
+    # is_Offscreen     : True
+    is_Offscreen     : False
 
 # ==============================
 # behaviour

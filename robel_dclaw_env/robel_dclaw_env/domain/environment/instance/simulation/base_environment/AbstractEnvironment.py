@@ -27,11 +27,11 @@ class AbstractEnvironment(metaclass=ABCMeta):
         pass
 
     @abstractmethod
-    def set_task_space_ctrl(self):
+    def set_task_space_ctrl(self, TaskSpacePosition):
         pass
 
     @abstractmethod
-    def set_joint_space_ctrl(self):
+    def set_joint_space_ctrl(self, joint_space_position):
         pass
 
     @abstractmethod
