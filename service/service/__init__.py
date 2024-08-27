@@ -19,6 +19,7 @@ from .radius_to_string_mapping import radius_to_string_mapping
 from .normalize import normalize
 from .check_typed_dict import check_typed_dict
 from .ImageSequenceDisplay import ImageSequenceDisplay
+from .repeated_addition import repeated_addition
 from .parameters_to_directory_name import parameters_to_directory_name
 from .get_pc_name import get_pc_name
 from .wait_time import wait_time

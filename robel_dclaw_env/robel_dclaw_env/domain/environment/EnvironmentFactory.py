@@ -1,4 +1,4 @@
-from .instance.simulation.valve import ValveSimulationEnvironment, ValveStateFactory
+from .instance.simulation.valve import ValveSimulationEnvironment, ValveStateFactory, InitiValveStateFactory
 
 from .instance.simulation.pushing.PushingSimulationEnvironment import PushingSimulationEnvironment
 from .instance.simulation.pushing.PushingStateFactory import PushingStateFactory
@@ -18,7 +18,7 @@ class EnvironmentFactory:
     def create(env_name: str):
         assert type(env_name) == str
 
-        if   env_name == "sim_valve"               : return (ValveSimulationEnvironment, ValveStateFactory)
+        if   env_name == "sim_valve"               : return (ValveSimulationEnvironment, InitiValveStateFactory)
         if   env_name == "sim_pushing"             : return (PushingSimulationEnvironment, GeneralPushingStateFactory)
         if   env_name == "sim_rectangular_pushing" : return (RectangularPushingSimulationEnvironment, GeneralPushingStateFactory)
         if   env_name == "sim_cube"                : return (CubeSimulationEnvironment, CubeStateFactory)

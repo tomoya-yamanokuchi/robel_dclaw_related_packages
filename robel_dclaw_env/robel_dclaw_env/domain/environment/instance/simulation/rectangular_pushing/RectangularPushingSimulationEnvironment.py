@@ -22,11 +22,11 @@ from .get_object_geom_names import get_object_geom_names
 
 
 class RectangularPushingSimulationEnvironment(AbstractEnvironment):
-    def __init__(self, config, use_render=True):
+    def __init__(self, config):
         self.env_name               = "sim_pushing"
         self.canonical_rgb_manager  = RectangularPushingCanonicalRGB()
         # ----
-        self.base_env               = BaseEnvironment(config, use_render)
+        self.base_env               = BaseEnvironment(config)
         self.forward_kinematics     = NumpyForwardKinematics()
         self.inverse_kinematics     = NumpyInverseKinematics()
         self.config                 = config

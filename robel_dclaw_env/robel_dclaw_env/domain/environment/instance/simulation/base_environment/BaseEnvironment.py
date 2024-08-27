@@ -10,9 +10,9 @@ from ..base_environment.viewer import ViewerNullManagerFactory
 
 
 class BaseEnvironment:
-    def __init__(self, config, use_render: bool):
+    def __init__(self, config):
         self.config             = config
-        self.use_render         = use_render
+        self.use_render         = config.use_render
         self.inplicit_step      = config.inplicit_step
         self.sim                = None
         self.viewer_manager     = None
@@ -32,19 +32,13 @@ class BaseEnvironment:
 
     def build_viewer(self):
         assert self.sim is not None
-        # if self.viewer_manager is None:
-            # self.viewer_manager = ViewerManager(self.sim, self.config)
         self.viewer_manager = ViewerNullManagerFactory.create(self.use_render, self.sim, self.config)
 
-
     def view(self):
-        # if self.use_render is None: return
-        # assert self.viewer_manager is not None
         self.viewer_manager.view(self.renderImageDict)
 
     def build_render(self, canonical_rgb):
         assert self.sim is not None
-        # if self.rendering_manager is None:
         paramDict = RenderingManagerParamDIct(
             sim            = self.sim,
             canonical_rgb  = canonical_rgb,
@@ -57,7 +51,6 @@ class BaseEnvironment:
 
 
     def render(self):
-        # assert self.viewer_manager is not None # to be initialized before rendering
         assert self.rendering_manager is not None
         self.renderImageDict = self.rendering_manager.render()
         return self.renderImageDict

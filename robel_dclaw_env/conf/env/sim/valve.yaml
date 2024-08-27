@@ -8,8 +8,22 @@ env_color  : "rgb_valve"
 inplicit_step                  : 200
 ctrl_interpolation_margin_step : 40
 
+# use_render: True
+use_render: False
+
 viewer:
-    is_Offscreen     : True
+    # is_Offscreen     : True
+    is_Offscreen     : False
+
+# ==============================
+# behaviour
+#     |---------------------------|
+#     | use_render & is_Offscreen |
+#     |---------------------------|
+#  1. |    True    &    True      | -- > OpenCV Rendering
+#  2. |    True    &    False     | -- > Mujoco Viewer Rendering
+#  3. |    False   & True / False | -- > Non-Rendering Mode (state only)
+# ==============================
 
 target:
     visible: False
@@ -68,6 +82,9 @@ light:
 
 xml:
     rgb:
-        # object: [255, 0, 0] # red
-        object: [0, 255, 0] # green
-        # object: [255, 0, 0] # blue
+        object: [
+            [255,   0,   0], # handle_1: red
+            [  0, 255,   0], # handle_2: green
+            [  0,   0, 255], # handle_3: blue
+            [255, 255, 255], #     base: white
+        ]

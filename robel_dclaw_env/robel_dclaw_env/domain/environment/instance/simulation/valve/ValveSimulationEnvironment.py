@@ -19,11 +19,11 @@ from .ValveCanonicalRGB import ValveCanonicalRGB
 
 
 class ValveSimulationEnvironment(AbstractEnvironment):
-    def __init__(self, config, use_render=True):
+    def __init__(self, config):
         self.env_name               = "sim_valve"
         self.canonical_rgb_manager  = ValveCanonicalRGB()
         # ----
-        self.base_env               = BaseEnvironment(config, use_render)
+        self.base_env               = BaseEnvironment(config)
         self.model_loader           = ModelLoader(self.base_env, config)
         self.forward_kinematics     = NumpyForwardKinematics()
         self.inverse_kinematics     = NumpyInverseKinematics()
